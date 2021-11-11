@@ -11,6 +11,7 @@ A ideia foi representar o fluxo de dados, percorrendo de forma geral:
 - Ingestão dos dados na camada raw, onde foi utilizado o PySpark para desenvolver
 - Processamento dos dados exames e pacientes da camada raw, criando um novo dataframe na camada service
 - Realização da análise com os dados exames_por_pacientes_sp da camada service
+- O data lake foi representado com diretório lake presente no projeto
   
 ## Instalação
 
