@@ -2,7 +2,7 @@
 
 O fluxo apresentado de maneira macro segue as atividade mencionadas no escopo do teste
 
-![Fluxo-dados](resources/fluxo_datalake.jpeg)
+![Fluxo-dados](resources/fluxo_datalake.png)
 
 ## Proposta
 
