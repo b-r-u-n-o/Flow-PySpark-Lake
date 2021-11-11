@@ -1,7 +1,7 @@
 import os
 from pyspark.sql import SparkSession
 from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.functions import *
+from pyspark.sql.functions import current_date, lit, months_between, col
 from ingest import save_parquet_file
 import logging
 
@@ -33,7 +33,7 @@ def load_parquet_file(spark: SparkSession, parquet_path: str) -> DataFrame:
 def join_data(
     df: DataFrame, other_df: DataFrame, on_column: str, method: str
 ) -> DataFrame:
-    """[summary]
+    """Realiza a junção entre dataframes
 
     Args:
         df (DataFrame): dataframe principal
@@ -49,7 +49,7 @@ def join_data(
 
 
 def insert_calculated_age(df: DataFrame, new_column: str, ref_column: str) -> DataFrame:
-    """[summary]
+    """Insere campo com a idade calculada
 
     Args:
         df (DataFrame): dataframe alvo
@@ -65,7 +65,7 @@ def insert_calculated_age(df: DataFrame, new_column: str, ref_column: str) -> Da
     return output_df
 
 
-if __name__ == "__main__":
+def main():
 
     logging.basicConfig(level=logging.INFO)
     logger = logging.getLogger(__file__)
@@ -127,3 +127,6 @@ if __name__ == "__main__":
 
     spark.stop()
     logger.info("Finalizada sessão Spark.")
+
+if __name__ == "__main__":
+    main()

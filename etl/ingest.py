@@ -29,13 +29,13 @@ def load_csv_file(spark: SparkSession, path: str) -> DataFrame:
 
 
 def insert_current_date(df: DataFrame) -> DataFrame:
-    """Insere campo com a idade calculada no df
+    """Insere um campo com data do dia
 
     Args:
-        df (DataFrame): Dataframe com campo que possa ser utilizado na criação do campo calculado de idade
+        df (DataFrame): Recebe o dataframe que receberá a nova coluna
 
     Returns:
-        DataFrame: com  a inserção de um campo calculado de idade
+        DataFrame: com a inserção de um campo com a data do dia
     """
     output_df = df.withColumn("DT_CARGA", current_date())
 
@@ -65,7 +65,7 @@ def save_parquet_file(
     )
 
 
-if __name__ == "__main__":
+def main():
 
     ROOT_PATH = "../lake/"
     STAGE_DB_EXAMES = f"{ROOT_PATH}stage/einstein_exames/EINSTEIN_Exames_2_082021.csv"
@@ -119,3 +119,7 @@ if __name__ == "__main__":
     logger.info(f"Cargas realizadas com sucesso!")
     spark.stop()
     logger.info("Encerrada sessão Spark.")
+
+
+if __name__=='__main__':
+    main()
