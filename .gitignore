@@ -254,7 +254,6 @@ spark-warehouse/
 # dirs
 jobs/*
 lake/stage/einstein_*
-resources/
 
 # Files 
 ../EINSTEINAgosto.zip
